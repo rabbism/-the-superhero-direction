@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
+import Person from '../Person/Person';
 import './Team.css'
 
 const Team = () => {
     const [person,setPerson] =useState([])
     useEffect(() =>{
-        fetch(`../../../public/persons.JSON`)
+        fetch('./persons.JSON')
         .then(res => res.json())
         .then(data => setPerson(data))
     },[])
+    const[cart,setCart] =useState([])
+    const handelToCart = person =>{
+        const newPerson =[...cart,person]
+        setCart(newPerson)
 
+    }
 
 
     return (
         <div className='team'>
             <div className='team-container'>
-                <h1>{console.log(person.length)} </h1>
+                {
+                    person.map(person => <Person handelToCart={handelToCart} person ={person}></Person>)
+                }
             </div>
 
 
 
 
             <div className='cart-container'>
-                <h2>New job office</h2>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
