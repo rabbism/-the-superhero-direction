@@ -1,0 +1,18 @@
+.cart{
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+   margin-top: 5px;
+}
+.cart button {
+    background-color: #0153af;
+    color: white;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 5px;
+}
+.cart h1{
+    color: tomato;
+    text-align: center;
+}
